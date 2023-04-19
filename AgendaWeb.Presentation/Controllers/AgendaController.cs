@@ -1,10 +1,16 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AgendaWeb.Presentation.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace AgendaWeb.Presentation.Controllers
 {
     public class AgendaController : Controller
-    {
-        public IActionResult Cadastro()
+    { public IActionResult Cadastro()
+        {
+            return View();
+        }
+
+        [HttpPost] //Annotation indica que o método será executado no SUBMIT
+        public IActionResult Cadastro(EventoCadastroViewModel model)
         {
             return View();
         }
