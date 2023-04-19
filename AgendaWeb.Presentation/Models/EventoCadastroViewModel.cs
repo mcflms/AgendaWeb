@@ -12,7 +12,7 @@ namespace AgendaWeb.Presentation.Models
         [Required(ErrorMessage = "Por favor, informe o nome do evento.")]
         public string? Nome { get; set; }
 
-        [Required(ErrorMessage = "Por favor, informe a data do evento..")]
+        [Required(ErrorMessage = "Por favor, informe a data do evento.")]
         public string? Data { get; set; }
 
         [Required(ErrorMessage = "Por favor, informe a hora do evento.")]
