@@ -10,7 +10,7 @@ namespace AgendaWeb.Presentation.Controllers
             return View();
         }
 
-        [HttpPost] //Annotation indica que o método será executado no SUBMIT ydshfgshgfhhsb
+        [HttpPost] //Annotation indica que o método será executado no SUBMIT 
         public IActionResult Cadastro(EventoCadastroViewModel model)
         {
             return View();

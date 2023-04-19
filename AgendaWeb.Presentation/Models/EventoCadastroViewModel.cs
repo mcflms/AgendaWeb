@@ -27,8 +27,6 @@ namespace AgendaWeb.Presentation.Models
     }
 
 
-
-
     }
 
 
