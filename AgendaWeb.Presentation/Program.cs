@@ -1,11 +1,22 @@
+using AgendaWeb.Infra.Data.Interfaces;
+using AgendaWeb.Infra.Data.Repositories;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Configurando o projeto para MVC.
+//configurando o projeto para MVC
 builder.Services.AddControllersWithViews();
+
+//capturar a connectionstring mapeada no appsettings.Json
+var connectionString = builder.Configuration.GetConnectionString("AgendaWeb");
+
+// Enviar a connectionstring mapeada no appsettings.json
+builder.Services.AddTransient<IEventoRepository>
+    (map => new EventoRepository(connectionString));
+
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+//configure the HTTP request pipeline
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Error");
@@ -16,9 +27,9 @@ app.UseRouting();
 
 app.UseAuthorization();
 
-//Definindo a Pagina inicial do Projeto. 
+// Definiindo a pagina inicial do projeto 
 app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}");
+    name: "default",pattern: "{controller=Home}/{action=Index}"
+    );
 
 app.Run();
